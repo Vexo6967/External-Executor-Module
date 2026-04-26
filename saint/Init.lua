@@ -812,15 +812,6 @@ function proxyobject(obj, namecalls)
 	return proxy
 end
 
-function lrm_load_script(script_id)
-    local url = "https://api.luarmor.net/files/v3/l/" .. tostring(script_id) .. ".lua"
-    local src = env.HttpGet(url, true)
-    if src then
-        local fn, err = env.loadstring(src)
-        if fn then return fn({ Origin = "Potassium" }) end
-    end
-end
-
 local pgame = proxyobject(game, {
 	HttpGet = env.HttpGet,
 	HttpGetAsync = env.HttpGet,
